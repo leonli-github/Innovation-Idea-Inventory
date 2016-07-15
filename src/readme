@@ -1,0 +1,17 @@
+1. install golang
+2. install mongodb
+3. install mgo drive
+4. install httprouter
+
+db.innoidea.find( { description:"test" },{title:1})
+
+
+{
+	key1:"value1",
+	key2:"value2"
+
+}\
+1 application for local use 
+2 robot 
+3 no need for huawei remove
+4 she
