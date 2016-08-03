@@ -30,7 +30,7 @@ func (IC InnoController) IndexPage(writer http.ResponseWriter, rquest *http.Requ
 
 func(IC InnoController) CreateInnoIdea(writer http.ResponseWriter, rquest *http.Request, param httprouter.Params){
     
-      idea := model.Innovation{}
+      idea := model.Idea{}
        
       json.NewDecoder(rquest.Body).Decode(&idea)
       
@@ -49,12 +49,12 @@ func(IC InnoController) GetInnoIdeaByTitle(writer http.ResponseWriter, ruest *ht
       s:= IC.session.Copy()
       defer s.Close()
 
-      idea:= model.Innovation{}
+      idea:= model.Idea{}
 
       title := param.ByName("title")
 
-      if err := s.DB("innodb").C("innoidea").Find(bson.M{"title":title}).One(&idea); err!=nil {
-        writer.WriteHeader(404)
+      if err := s.DB("innodb").C("innoidea").Find(bson.M{"projecttitle":title}).One(&idea); err!=nil {
+        writer.WriteHeader(404  )
         return
       }
 
@@ -75,19 +75,38 @@ func(IC InnoController) GetTitles(writer http.ResponseWriter, ruest *http.Reques
     
       s:= IC.session.Copy()
       defer s.Close()
+      
+      ideas:= []model.Idea{}
 
-      ideas:= []model.Innovation{}
-
-      if err := s.DB("innodb").C("innoidea").Find(nil).Select(bson.M{"title":1}).All(&ideas); err!=nil {
+      if err := s.DB("innodb").C("innoidea").Find(nil).Select(bson.M{"projecttitle":1,"description":1}).All(&ideas); err!=nil {
         writer.WriteHeader(404)
         return    
       }
-
+    
     ideajson,_ := json.Marshal(ideas)
 
     writer.Header().Set("Content-Type", "application/json")
     writer.WriteHeader(200)
     fmt.Fprintf(writer, "%s", ideajson)
+
+
+}
+
+func(IC InnoController) GetNEXT(writer http.ResponseWriter, ruest *http.Request, param httprouter.Params){
+    
+  
+      t, _ := template.ParseFiles("../template/NEXT.html")
+      t.Execute(writer,nil)
+
+
+
+}
+func(IC InnoController) GetLUCKY(writer http.ResponseWriter, ruest *http.Request, param httprouter.Params){
+    
+  
+      t, _ := template.ParseFiles("../template/lucky.html")
+      t.Execute(writer,nil)
+
 
 
 }

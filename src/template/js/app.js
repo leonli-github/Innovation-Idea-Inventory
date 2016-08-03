@@ -1,3 +1,5 @@
+var idea={};
+
 function initcanvas(){
  
  $(document).ready(function() {
@@ -7,16 +9,27 @@ function initcanvas(){
 $.get( "/gettitles", function( data ) {
    for(var item in data){
      
-     var href = "/get/" +  data[item].title;
-     var t = $("<a></a>").text(data[item].title).attr("href", href);   
+     var fontno = Math.floor(Math.random() * 30) + 10;
+     var fontsize = fontno.toString() + "pt";
+     var href = "/get/" +  data[item].projecttitle;
+     idea[data[item].projecttitle] = data[item].description;
+     //var t = $("<a></a>").text(data[item].projecttitle).css({"font-size":fontsize}).attr("href", href); 
+     var t = $("<a></a>").text(data[item].projecttitle).attr("id",data[item].projecttitle).css({"font-size":fontsize}).on( "click", function(event) {
+  
+       event.preventDefault();
+       //alert(idea[$(this).text()]);
+       OpenDialog($(this).text(),idea[$(this).text()]);
+  
+});   
      $("#links").append(t);
      }
 
  if(!$('#myCanvas').tagcanvas({
-          textColour: '#ff0000',
+          textColour: null,
           textFont: null,
           weight:true,
-          textHeight: 20,
+          weightMode:"both",
+          //textHeight: 20,
           outlineColour: '#ff00ff',
           reverse: true,
           depth: 0.8,
@@ -28,7 +41,7 @@ $.get( "/gettitles", function( data ) {
           $('#myCanvasContainer').hide();
         }
       });
-   //alert(data[0].title);
+   //alert(data[0].projecttitle);
 });
  
 }
@@ -39,3 +52,10 @@ function retrievetags(){
      }); 
      
 } 
+
+function OpenDialog(name,desc){
+     
+     $("#dialog").text(desc);
+     $("#dialog").dialog('option','title',name);
+     $( "#dialog" ).dialog( "open" );
+}
