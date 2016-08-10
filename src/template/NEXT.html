@@ -65,7 +65,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    <title>Futurama|Chapter NEXT</title>
     
     <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
     <meta name="author" content="Bartek Szopka" />
@@ -111,7 +111,9 @@
     
 -->
 <body class="impress-not-supported">
-
+ <audio controls autoplay>
+  <source src="audio/pokemon.mp3" type="audio/mp3">
+</audio> 
 <!--
     For example this fallback message is only visible when there is `impress-not-supported` class on body.
 -->
@@ -198,8 +200,9 @@
         
     -->
     <div id="title" class="step" data-x="0" data-y="0" data-scale="3">
-        <span class="try">現在為你隆重介紹</span>
+        <span class="try">現在為您隆重介紹</span>
         <h1>第五屆金點子大賽</h1>
+
 
     </div>
 
@@ -212,7 +215,17 @@
         
     -->
     <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>本次金點子大賽ｂｌａｂｌａｂｌａｂｌａ</p>
+        <p>本次金點子大賽</p>
+        <img src="images/process.png" alt="Mountain View" style="width:800px;height:500px;">
+    </div>
+
+
+    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+        <img src="images/giphy2.gif" alt="Mountain View" style="width:400px;height:400px;">
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="5">
+        <p>資科部和網金部將從獲一、二等獎項目中選取1-2個，聯手進行孵化培育。網金將指定團隊與資科部應用開發團隊組成孵化專案組，制訂專案發展計畫</p>
     </div>
 
     <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
@@ -252,13 +265,7 @@
         Only one current step has the `present` class.
         
     -->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>此处应有流程图</p>
-    </div>
-
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
+    
 
     <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
         <p>想要了解更多</p>
@@ -282,7 +289,7 @@
         
     -->
     <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><a href="/getLUCKY">进入抽奖环节！</p>
+        <p><a href="/getLUCKY">进入抽奖环节！</a></p>
     </div>
 
     <!--
@@ -329,14 +336,8 @@
     Just sayin' ;)
     
 -->
-<div class="hint">
-    <p>Use a spacebar or arrow keys to navigate</p>
-</div>
-<script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
-</script>
+
+
 
 <!--
     

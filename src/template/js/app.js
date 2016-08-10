@@ -9,7 +9,7 @@ function initcanvas(){
 $.get( "/gettitles", function( data ) {
    for(var item in data){
      
-     var fontno = Math.floor(Math.random() * 30) + 10;
+     var fontno = Math.floor(Math.random() * 40) + 30;
      var fontsize = fontno.toString() + "pt";
      var href = "/get/" +  data[item].projecttitle;
      idea[data[item].projecttitle] = data[item].description;

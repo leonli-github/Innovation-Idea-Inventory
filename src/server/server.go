@@ -26,7 +26,7 @@ func main() {
     router.GET("/getLUCKY",innocontroller.GetLUCKY)
     router.NotFound = http.FileServer(http.Dir("../template"))
     fmt.Println("setting router")
-	http.ListenAndServe("localhost:3000", router)
+	http.ListenAndServe("192.168.54.163:3000", router)
     fmt.Println("listening")
 }
 

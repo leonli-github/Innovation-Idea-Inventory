@@ -13,7 +13,7 @@ body{background:url(images/body_bg.jpg) 0px 0px repeat-x #000;}
 .num_mask{background:url(images/num_mask.png) 0px 0px no-repeat;height:184px;width:740px;position:absolute;left:50%;top:340px;margin-left:-370px;z-index:9;}
 .num_box{height:450px;width:750px;position:absolute;left:50%;top:340px;margin-left:-370px;z-index:8;overflow:hidden;text-align:center;}
 .num{background:url(images/num.png) top center repeat-y;width:181px;height:265px;float:left;margin-right:6px;}
-.btn{background:url(images/btn_start.png) 0px 0px no-repeat;width:264px;height:89px;position:absolute;left:50%;bottom:50px;margin-left:-132px;cursor:pointer;clear:both;}
+.btn{background:url(images/btn_start.png) 0px 0px no-repeat;width:264px;height:89px;position:absolute;left:50%;bottom:70px;margin-left:-132px;cursor:pointer;clear:both;}
 </style>
 </head>
 <body>
@@ -34,7 +34,7 @@ body{background:url(images/body_bg.jpg) 0px 0px repeat-x #000;}
 </html>
 <script>
 function numRand() {
-	var x = 1060; //上限
+	var x = 1023; //上限
 	var y = 1000; //下限
 	var rand = parseInt(Math.random() * (x - y + 1) + y);
 	return rand;
@@ -67,5 +67,7 @@ $(function(){
 });
 </script>
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>整理编辑：<a href="http://www.js-css.cn/" target="_blank">JS代码网</a></p>
+ <audio controls autoplay>
+  <source src="audio/pokemon.mp3" type="audio/mp3">
+</audio> 
 </div>
